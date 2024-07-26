@@ -1,1 +1,26 @@
-style.css
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#unityContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+#settingsContainer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+#tiktokUsername {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+}

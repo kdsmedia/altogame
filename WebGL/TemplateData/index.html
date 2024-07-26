@@ -1,1 +1,43 @@
-index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TARIK JABRIK</title>
+    <link rel="stylesheet" type="text/css" href="TemplateData/style.css">
+</head>
+<body>
+    <div id="unityContainer"></div>
+    <div id="settingsContainer">
+        <input type="text" id="tiktokUsername" placeholder="Enter TikTok Username">
+        <button onclick="connectTikTok()">Connect</button>
+    </div>
+    <script src="Build/game.js"></script>
+    <script src="TemplateData/unityloader.js"></script>
+    <script>
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/game.loader.js";
+        var config = {
+            dataUrl: buildUrl + "/game.data",
+            frameworkUrl: buildUrl + "/game.js",
+            codeUrl: buildUrl + "/game.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "appsidhanie",
+            productName: "TARIK JABRIK",
+            productVersion: "1.0"
+        };
+
+        var unityContainer = document.querySelector("#unityContainer");
+
+        var unityInstance = UnityLoader.instantiate("unityContainer", loaderUrl, config);
+
+        function connectTikTok() {
+            var username = document.getElementById('tiktokUsername').value;
+            // Implement TikTok connection logic here
+            console.log("Connecting to TikTok with username: " + username);
+            // Call the Unity method to connect TikTok
+            unityInstance.SendMessage('TikTokConnector', 'ConnectToTikTok', username);
+        }
+    </script>
+</body>
+</html>
